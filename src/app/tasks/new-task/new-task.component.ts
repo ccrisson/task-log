@@ -1,4 +1,8 @@
+import { formatCurrency } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+
+import { TaskService } from '../../task.service';
 
 @Component({
   selector: 'app-new-task',
@@ -6,14 +10,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-task.component.css']
 })
 export class NewTaskComponent implements OnInit {
+  taskForm = new FormGroup({
+    title: new FormControl(''),
+    date: new FormControl(this.getCurrentDate()),
+    content: new FormControl('')
+  })
 
-  constructor() { }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
-    const datePicker =  document.getElementById('date-picker');
-    datePicker.setAttribute("value", this.getCurrentDate());
-    console.log(datePicker);
-    //.value = new Date().toLocaleDateString();
+
+
   }
 
   getCurrentDate(): string {
@@ -24,5 +31,14 @@ export class NewTaskComponent implements OnInit {
     dateString += month + "-";
     dateString += date.getDate().toString();
     return dateString;
+  }
+
+  onNewTask(): void {
+
+  }
+
+  createTask(): void {
+    let task = {};
+
   }
 }

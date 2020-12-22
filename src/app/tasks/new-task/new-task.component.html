@@ -1,9 +1,12 @@
 <h3>Add task</h3>
 <div id="new-task-form" class="flow-column">
-  <div class="task-header">
-    <input type="text" name="" id="" placeholder="Enter task title">
-    <input type="date" name="" id="date-picker">
-  </div>
-  <textarea name="" id="" cols="30" rows="10"></textarea>
-  <button>submit</button>
+  <form [formGroup]="taskForm">
+    <div class="task-header">
+      <input type="text" formControlName="title" placeholder="Enter task title">
+      <input type="date" formControlName="date">
+    </div>
+    <textarea name="content" formControlName="content" cols="50" rows="4"></textarea>
+    <button type=submit>Add Task</button>
+  </form>
+
 </div>
