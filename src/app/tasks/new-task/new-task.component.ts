@@ -11,14 +11,18 @@ export class NewTaskComponent implements OnInit {
 
   ngOnInit(): void {
     const datePicker =  document.getElementById('date-picker');
-    const date = new Date();
-    datePicker.setAttribute(
-      "value",
-      date.getFullYear().toString() + "-" +
-      date.getMonth().toString() + "-" +
-      date.getDate());
+    datePicker.setAttribute("value", this.getCurrentDate());
     console.log(datePicker);
     //.value = new Date().toLocaleDateString();
   }
 
+  getCurrentDate(): string {
+    const date = new Date();
+    let dateString = date.getFullYear().toString() + "-";
+    let month = (date.getMonth() + 1).toString();
+    month = month.length > 1 ? month : "0" + month;
+    dateString += month + "-";
+    dateString += date.getDate().toString();
+    return dateString;
+  }
 }
