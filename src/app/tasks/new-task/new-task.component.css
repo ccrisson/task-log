@@ -1,0 +1,12 @@
+* {
+  margin:15px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.flow-column {
+  display:flex;
+  flex-flow:column;
+}

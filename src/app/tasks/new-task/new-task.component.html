@@ -1,0 +1,10 @@
+<h3>Add task</h3>
+<div id="new-task-form" class="flow-column">
+  <form [formGroup]="taskForm" (ngSubmit)="onNewTask()">
+    <input type="text" formControlName="title" placeholder="Enter task title">
+    <input type="date" formControlName="date">
+    <textarea name="content" formControlName="content" cols="50" rows="4"></textarea>
+    <button type="submit" [disabled]="!taskForm.valid">Add Task</button>
+  </form>
+
+</div>
