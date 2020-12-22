@@ -34,7 +34,7 @@ export class NewTaskComponent implements OnInit {
   }
 
   onNewTask(): void {
-
+    this.taskService.createTask(this.taskForm.value);
   }
 
   createTask(): void {
